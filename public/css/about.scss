@@ -1,12 +1,112 @@
 // Variables
-$topTeal-color:#2D5F5D;
-$top-color: #e4ef8e;
-$middleBttm-color: #A4C3C4;
-$lightBttm-bg: #f4f6f8;
+$lightBlueGray:#ABC6CD;
+$darkTeal: #22505C;
+$yellowGreen: #E3F564;
+$lightMintGray: #EBF7FC;
 $text-dark: #222;
-
+                        ///////////         mobile first design     ///////////////////
 body {
     margin: 0;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: $middleBttm-color;
+    font-family: Georgia, 'Times New Roman', Times, serif; // might need to change the font 
+    background-color: $lightBlueGray;
+    color: $text-dark;
+}
+                        //////////////      about container
+.about {
+    max-width: 420px;
+    margin: 0 auto;
+    background: $lightMintGray;
+    // border-radius: 10px;
+    // overflow: hidden; // hides and crops the picture that is overflowing
+    .about_intro {
+        background: $yellowGreen;
+        padding: 1.5rem;
+        text-align: center;
+    }
+    h2 {
+        margin-top: 0.5rem 0;
+        font-weight: bold;
+        color: $darkTeal;
+    }
+    p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+}
+.aboutTitle {
+    color: $darkTeal;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+                        ///////////     team section        ///////////
+.team {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+}
+.teamMember {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 0.5rem;
+    }
+    h3 {
+        font-size: 0.9rem;
+        margin: 0.25rem 0 0;
+    }
+    p {
+        font-size: 0.75rem;
+        margin: 0;
+        color: $text-dark;
+    }
+}
+                /////////////       contact section     ////////////
+.contact {
+    padding: 2rem 1.5rem;
+}
+.contact h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.contactForm {
+    background-color: $lightBlueGray;
+    padding: 1.5rem;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    input,
+    textarea {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+        border-radius: 4px;
+        border: none;
+    }
+    textarea {
+        resize: none;
+        height: 80px;
+    }
+    button {
+        margin-top: 1rem;
+        align-self: center;
+        background-color: $text-dark;
+        color: white;
+        border: none;
+        padding: 0.6rem 1.5rem;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 0.85rem;
+        &:hover {
+            opacity: 0.85;
+        }
+    }
 }

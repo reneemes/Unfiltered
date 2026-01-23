@@ -22,8 +22,8 @@ This app was inspired by the E
 - **Database:** <!--MongoDB-->
 - **Styling:** <!--Tailwind CSS-->
 - **Version Control:** Git & GitHub
-
-- ##  **The Contributors**
+ 
+- - ##  **The Contributors**
     [![Renee](team-imgs/renee.png)](https://github.com/reneemes)
     [![Cynthia](team-imgs/cynthia.png)](https://github.com/cynthiarincon)
     [![Elhadji](team-imgs/elhadji.png)](https://github.com/MassowNdiaye)
