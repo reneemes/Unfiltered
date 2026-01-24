@@ -5,10 +5,10 @@ export async function saveMoodEntry(userId, mood) {
     .promise()
     .query(`
       INSERT INTO mood (mood, user_id)
-      VALUES (?, ?)
+      VALUES (?, ?) AS new
       ON DUPLICATE KEY UPDATE
-        mood = VALUES(mood),
-        created_at = CURRENT_TIMESTAMP
+        mood = new.mood,
+        created_at = CURRENT_TIMESTAMP;
       `, [
         mood,
         userId
@@ -18,7 +18,7 @@ export async function saveMoodEntry(userId, mood) {
 
 // Service file is just for handling the DB
 
-export async function getAllMoodEntries(userId, reange) {
+export async function getAllMoodEntries(userId, range) {
   let interval = '';
 
   switch (range) {
@@ -43,7 +43,7 @@ export async function getAllMoodEntries(userId, reange) {
         FROM mood
         WHERE user_id = ?
           AND created_at >= DATE_SUB(NOW(), ${interval})
-        ORDER BY created_at DESC
+        ORDER BY created_at DESC;
       `,
       [userId]
     )

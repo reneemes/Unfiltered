@@ -1,9 +1,9 @@
-import express from 'express';
-import { 
+const express = require('express');
+const { 
   createJournal, 
   getAllJournalEntries, 
   deleteJournal 
-} from '../controllers/journalController.js';
+} = require('../controllers/journalController.js');
 
 const router = express.Router();
 
@@ -11,4 +11,4 @@ router.post('/', createJournal);
 router.get('/', getAllJournalEntries);
 router.delete('/:journalId', deleteJournal)
 
-export default router;
+module.exports = router;

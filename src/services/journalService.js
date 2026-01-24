@@ -1,8 +1,8 @@
-import connection from '../db.js';
+const connection = require('../db.js');
 
-export async function saveJournalEntry(userId, title, content) {
+async function createJournalEntry(userId, title, content) {
   const [result] = await connection.promise().query(
-    'INSERT INTO journal (title, content, user_id) VALUES (?, ?, ?)', [
+    'INSERT INTO journal (title, body, user_id) VALUES (?, ?, ?);', [
       title,
       content,
       userId
@@ -11,19 +11,25 @@ export async function saveJournalEntry(userId, title, content) {
   return result.insertId;
 }
 
-export async function getJournalEntries(userId) {
+async function getJournalEntries(userId) {
   const [result] = await connection.promise().query(
     `SELECT * 
     FROM journal 
     WHERE user_id = ? 
-    ORDER BY created_at DESC`, [userId]
+    ORDER BY created_at DESC;`, [userId]
   );
   return result;
 }
 
-export async function deleteJournalById(userId, journalId) {
+async function deleteJournalById(userId, journalId) {
   const [result] = await connection.promise().query(
-    'DELETE FROM journal WHERE user_id = ? AND id = ?', [userId, journalId]
+    'DELETE FROM journal WHERE user_id = ? AND id = ?;', [userId, journalId]
   );
   return result;
 }
+
+module.exports = {
+  createJournalEntry,
+  getJournalEntries,
+  deleteJournalById
+};

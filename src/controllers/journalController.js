@@ -1,10 +1,10 @@
-import { 
-  saveJournalEntry, 
+const { 
+  createJournalEntry, 
   getJournalEntries, 
   deleteJournalById 
-} from '../services/journalService.js';
+} = require('../services/journalService.js');
 
-export async function createJournal(req, res) {
+async function createJournal(req, res) {
   if (!req.session.userId) {
     return res.redirect('/login');
   }
@@ -12,7 +12,7 @@ export async function createJournal(req, res) {
   const { title, content } = req.body;
 
   try {
-    const journalId = await saveJournalEntry(req.session.userId, title, content);
+    const journalId = await createJournalEntry(req.session.userId, title, content);
     res.status(201).json({ message: 'Journal created!', journalId });
   } catch (error) {
     console.error(error);
@@ -20,7 +20,7 @@ export async function createJournal(req, res) {
   }
 }
 
-export async function getAllJournalEntries(req, res) {
+async function getAllJournalEntries(req, res) {
   if (!req.session.userId) {
     return res.redirect('/login');
   }
@@ -34,7 +34,7 @@ export async function getAllJournalEntries(req, res) {
   }
 }
 
-export async function deleteJournal(req, res) {
+async function deleteJournal(req, res) {
   if (!req.session.userId) {
     return res.redirect('/login');
   }
@@ -48,3 +48,9 @@ export async function deleteJournal(req, res) {
     res.status(500).json({ error: 'Unable to delete journal entry.' });
   }
 }
+
+module.exports = {
+  createJournal,
+  getAllJournalEntries,
+  deleteJournal
+};

@@ -3,6 +3,8 @@ const mysql = require('mysql2');
 const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
+const journalRoutes = require('./routes/journal.js');
+const moodRoutes = require('./routes/mood.js');
 
 const port = process.env.PORT || 8080;
 
@@ -11,6 +13,7 @@ const publicDirectoryPath = path.join(__dirname, '../public');
 const viewsPath = path.join(__dirname, '../templates/views');
 const partialsPath = path.join(__dirname, '../templates/partials');
 
+const app = express();
 // Setup handlebars engine and view location
 app.set('view engine', 'hbs');
 app.set('views', viewsPath);
