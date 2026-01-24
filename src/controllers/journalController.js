@@ -40,9 +40,20 @@ async function deleteJournal(req, res) {
   }
 
   const { journalId } = req.params;
+
   try {
     await deleteJournalById(req.session.userId, journalId);
-    res.status(204);
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: 'Journal entry not found' });
+    }
+
+    const remainingEntries = await getJournalEntries(req.session.userId);
+
+    res.status(200).json({
+      message: 'Journal entry deleted',
+      journalEntries: remainingEntries
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Unable to delete journal entry.' });

@@ -4,6 +4,6 @@ const { createMood, getAllMoods } = require('../controllers/moodController.js');
 const router = express.Router();
 
 router.post('/', createMood);
-router.get('/:userId', getAllMoods);
+router.get('/', getAllMoods);
 
 module.exports = router;
