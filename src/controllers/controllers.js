@@ -49,11 +49,16 @@ exports.signin = async (req, res) => {
 
     const token = jwt.sign(
       { id: user.id, name: user.name, username: user.username },
-      "hopehackssecretkey",
+      process.env.JWT_SECRET_KEY,
       { expiresIn: "1h" }
     );
 
-    res.status(200).json({
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      maxAge: 3600000 // 1 hour
+    })
+    .status(200).json({
       message: "Sign in successful",
       token,
       user: {

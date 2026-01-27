@@ -8,7 +8,7 @@ const {
 const router = express.Router();
 
 router.post('/', createJournal);
-router.get('/', getAllJournalEntries);
+router.get('/', auth, getAllJournalEntries);
 router.delete('/:journalId', deleteJournal);
 
 module.exports = router;
