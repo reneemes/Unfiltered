@@ -5,6 +5,7 @@ const hbs = require("hbs");
 
 const app = express();
 
+const app = express();
 const port = process.env.PORT || 8080;
 
 // Define paths for Express config
@@ -21,17 +22,12 @@ app.use(express.static(publicDirectoryPath));
 
 // Landing Page
 app.get("", (req, res) => {
-  res.render("landing-page"); //res -> Render -> landing Page (landing.hbs)
+  res.render("landing"); //res -> Render -> landing Page (landing.hbs)
 });
 
-// Login
-app.get("/login", (req, res) => {
-  res.render("login"); //res -> Render -> login Page (login.hbs)
-});
-
-// Account Creation
-app.get("/Account", (req, res) => {
-  res.render("account-creation-page"); //res -> Render -> Account Creation Page (account-creation-page.hbs)
+// Auth page (login + signup)
+app.get("/auth", (req, res) => {
+  res.render("auth");
 });
 
 // Homepage
@@ -45,16 +41,8 @@ app.get("/resources", (req, res) => {
 });
 
 // About Us
-app.get("/About", (req, res) => {//res -> Render -> About Us Page (about.hbs)
-  res.render("about", {
-team: [
-  { name: 'Renee', role: 'TeamLead', image: '/img/renee.png'},
-  { name: 'Cynthia', role: 'Front-end', image: '/img/cynthia.png'},
-  { name: 'Imani', role: 'Back-end', image: '/img/imani.png'},
-  { name: 'Elhadji', role: 'Front-end', image: '/img/elhadji.png'},
-  { name: 'Amadeo', role: 'Front-end', image: '/img/Aqr.png'} 
-]
-  });
+app.get("/About", (req, res) => {
+  res.render("about"); //res -> Render -> About Us Page (about.hbs)
 });
 
 app.listen(port, () => {
