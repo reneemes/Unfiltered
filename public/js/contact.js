@@ -41,7 +41,6 @@ form.addEventListener("submit", (e) => {
 });
 
 //  Helper Functions ///
-
 function validateText(input) {
   if (!input.value.trim()) {
     input.classList.add("error");
