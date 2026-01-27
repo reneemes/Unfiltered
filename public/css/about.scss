@@ -102,6 +102,9 @@ body {
 }
 
 .contact {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
 
   &__title {
     text-align: center;
@@ -133,11 +136,40 @@ body {
     select {
       border: 2px solid transparent;
       border-radius: 8px;
-      font-size: 1rem;
+      background: white;
+      // font-size: 16px;
+      font-size: inherit;
+      width: 100%;
       padding: 0.6rem;
       transition: border-color 0.2 ease ;
-      font-size: inherit;
-      background: white;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .select-wrap {
+      position: relative;
+    }
+
+    &__btn {
+        border: none;
+        border-radius: 10px;
+        align-self: center;
+        background-color: $text-dark;
+        color: white;
+        font-size: 0.9rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-top: 1rem;
+        padding: 0.75rem 3rem;
+        transition: opacity 0.2s ease;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.85;
+        }
     }
   }
 }

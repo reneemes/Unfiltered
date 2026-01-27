@@ -67,6 +67,11 @@ body {
   font-size: 1.5rem;
 }
 
+.contact {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
 .contact__title {
   text-align: center;
   font-size: 1.5rem;
@@ -96,9 +101,33 @@ body {
 .contact .contact-form select {
   border: 2px solid transparent;
   border-radius: 8px;
-  font-size: 1rem;
+  background: white;
+  font-size: inherit;
+  width: 100%;
   padding: 0.6rem;
   transition: border-color 0.2 ease;
-  font-size: inherit;
-  background: white;
+}
+.contact .contact-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+.contact .contact-form .select-wrap {
+  position: relative;
+}
+.contact .contact-form__btn {
+  border: none;
+  border-radius: 10px;
+  align-self: center;
+  background-color: #222;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  padding: 0.75rem 3rem;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+}
+.contact .contact-form__btn:hover {
+  opacity: 0.85;
 }/*# sourceMappingURL=about.css.map */
