@@ -4,7 +4,6 @@ const express = require("express");
 const hbs = require("hbs");
 
 const app = express();
-
 const port = process.env.PORT || 8080;
 
 // Define paths for Express config
@@ -21,7 +20,7 @@ app.use(express.static(publicDirectoryPath));
 
 // Landing Page
 app.get("/", (req, res) => {
-  res.render("landing-page"); //res -> Render -> landing Page (landing.hbs)
+  res.render("landing"); //res -> Render -> landing Page (landing.hbs)
 });
 
 // Login
