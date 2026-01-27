@@ -1,19 +1,19 @@
 body {
   margin: 0;
   font-family: Georgia, "Times New Roman", Times, serif;
-  background-color: #ABC6CD;
+  background-color: #abc6cd;
   color: #222;
 }
 
 .about {
   width: 100%;
   margin: 0 auto;
-  background: #EBF7FC;
+  background: #ebf7fc;
   display: flex;
   flex-direction: column;
 }
 .about .about_intro {
-  background: #E3F564;
+  background: #e3f564;
   padding: 1.5rem;
   text-align: center;
   order: 1;
@@ -21,7 +21,7 @@ body {
 .about h2 {
   margin-top: 0.5rem 0;
   font-weight: bold;
-  color: #22505C;
+  color: #22505c;
   font-size: 1.5rem;
 }
 .about p {
@@ -31,7 +31,7 @@ body {
 }
 
 .aboutTitle {
-  color: #22505C;
+  color: #22505c;
   font-size: 1.3rem;
   letter-spacing: 1px;
   margin-bottom: 0.5rem;
@@ -39,7 +39,7 @@ body {
 }
 
 .about > div :first-child {
-  background: #E3F564;
+  background: #e3f564;
   text-align: center;
   margin-bottom: 2rem;
   font-size: clamp(2rem, 8vw, 3.75rem) !important;
@@ -65,7 +65,7 @@ body {
   height: 90px;
   border-radius: 50%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .teamMember h3 {
   font-size: 1rem;
@@ -126,8 +126,8 @@ body {
 }
 .contactForm select {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
@@ -253,4 +253,4 @@ body {
     max-width: 1400px;
     margin: 0 auto;
   }
-}/*# sourceMappingURL=about.css.map */
+} /*# sourceMappingURL=about.css.map */

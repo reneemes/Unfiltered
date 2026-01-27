@@ -19,11 +19,14 @@
     "dev": "nodemon src/app.js -e js,hbs"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.18",
     "axios": "^1.13.2",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "hbs": "^4.2.0",
-    "install": "^0.13.0"
+    "install": "^0.13.0",
+    "sass": "^1.97.3",
+    "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.23",

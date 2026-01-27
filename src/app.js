@@ -4,8 +4,9 @@ const express = require("express");
 const hbs = require("hbs");
 
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-const app = express();
 const port = process.env.PORT || 8080;
 
 // Define paths for Express config
@@ -35,16 +36,40 @@ app.get("/homepage", (req, res) => {
   res.render("homepage"); //res -> Render -> homepage (homepage.hbs)
 });
 
+// JOURNAL ROUTE <---- NEED WORK!!
+app.use((req, res, next) => {
+  req.user = { id: 1 }; // fake logged-in user
+  next();
+});
+
+app.post("/journal", (req, res) => {
+  if (!req.user) {
+    return res.status(401).json({ message: "Not logged in" });
+  }
+
+  const { title, content } = req.body;
+
+  if (!content) {
+    return res.status(400).json({ message: "Content required" });
+  }
+
+  res.status(201).json({
+    message: "Journal created!",
+    journalId: Date.now(),
+  });
+});
+
 // Resources
 app.get("/resources", (req, res) => {
   res.render("resources"); //res -> Render -> resources Page (resources.hbs)
 });
 
 // About Us
-app.get("/About", (req, res) => {
+app.get("/about", (req, res) => {
   res.render("about"); //res -> Render -> About Us Page (about.hbs)
 });
 
+//Server
 app.listen(port, () => {
   console.log(`Server is up on port ${port}`);
 });
