@@ -101,7 +101,46 @@ body {
   }
 }
 
+.contact {
 
+  &__title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 30px 0 0;
+  }
+
+  &__message {
+    padding: 10px;
+  }
+
+  .contact-form {
+    @include center;
+    align-items: stretch;
+    border-radius: 20px;
+    background-color: rgba($lightBlueGray, 0.5);
+    padding: 1.5rem;
+    gap: 1rem;
+
+    label {
+      color: $text-dark;
+      font-size: 1rem;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    input,
+    textarea,
+    select {
+      border: 2px solid transparent;
+      border-radius: 8px;
+      font-size: 1rem;
+      padding: 0.6rem;
+      transition: border-color 0.2 ease ;
+      font-size: inherit;
+      background: white;
+    }
+  }
+}
 
 
 
