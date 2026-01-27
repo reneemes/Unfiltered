@@ -27,6 +27,7 @@
     "express-session": "^1.19.0",
     "hbs": "^4.2.0",
     "install": "^0.13.0",
+    "jsonwebtoken": "^9.0.3",
     "mysql2": "^3.16.1"
   },
   "devDependencies": {

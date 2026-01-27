@@ -49,7 +49,7 @@ exports.signin = async (req, res) => {
 
     const token = jwt.sign(
       { id: user.id, name: user.name, username: user.username },
-      process.env.JWT_SECRET_KEY,
+      process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
 
@@ -58,15 +58,16 @@ exports.signin = async (req, res) => {
       secure: process.env.NODE_ENV === "production",
       maxAge: 3600000 // 1 hour
     })
-    .status(200).json({
-      message: "Sign in successful",
-      token,
-      user: {
-        id: user.id,
-        name: user.name,
-        username: user.username,
-      },
-    });
+    .redirect("/homepage");
+    // .status(200).json({
+    //   message: "Sign in successful",
+    //   token,
+    //   user: {
+    //     id: user.id,
+    //     name: user.name,
+    //     username: user.username,
+    //   },
+    // });
   } catch (error) {
     res.status(500).json({
       message: "Error signing in",
@@ -77,5 +78,7 @@ exports.signin = async (req, res) => {
 
 // SIGN OUT
 exports.signout = async (req, res) => {
-  res.status(200).json({ message: "Signed out successfully" });
+  res.clearCookie("token");
+  // res.status(200).json({ message: "Signed out successfully" });
+  res.redirect("/auth");
 };

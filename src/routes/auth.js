@@ -5,6 +5,9 @@ const {
   signin,
   signout,
 } = require("../controllers/authController");
+const auth = require("../middleware/auth.js");
+
+router.use(auth);
 
 router.post("/signup", signup);
 router.post("/signin", signin);

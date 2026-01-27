@@ -4,14 +4,14 @@ const {
 } = require('../services/moodService.js');
 
 async function createMood(req, res) {
-  if (!req.session.userId) {
+  if (!req.user.id) {
     return res.redirect('/login');
   }
 
   const { mood } = req.body;
 
   try {
-    const result = await createMoodEntry(req.session.userId, mood);
+    const result = await createMoodEntry(req.user.id, mood);
     res.status(201).json({ message: 'Mood saved!', result });
   } catch (error) {
     console.error(error);
@@ -20,13 +20,13 @@ async function createMood(req, res) {
 }
 
 async function getAllMoods(req, res) {
-  if (!req.session.userId) {
+  if (!req.user.id) {
     return res.redirect('/login');
   }
 
   const range = req.query.range || 'week';
   try {
-    const moods = await getAllMoodEntries(req.session.userId, range);
+    const moods = await getAllMoodEntries(req.user.id, range);
     res.status(200).json({ moods });
   } catch (error) {
     console.error(error);

@@ -2,12 +2,14 @@ require("dotenv").config();
 const path = require("path");
 const express = require("express");
 const hbs = require("hbs");
-const cookieParser = require('cookie-parser')
-const jwt = require("jsonwebtoken");
+const cookieParser = require('cookie-parser');
+// const jwt = require("jsonwebtoken");
 
-const authRoutes = require("./src/routes/auth.js");
+const authRoutes = require("./routes/auth.js");
 const journalRoutes = require("./routes/journal.js");
 const moodRoutes = require("./routes/mood.js");
+
+const auth = require("./middleware/auth.js");
 
 const port = process.env.PORT || 8080;
 
@@ -23,19 +25,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 
-function auth(req, res, next) {
-  const token = req.cookies.token;
-  if (!token) return res.redirect("/login");
 
-  try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded;
-    next();
-  } catch (err) {
-    return res.redirect("/login");
-  }
-}
+// function auth(req, res, next) {
+//   const token = req.cookies.token;
+//   if (!token) return res.redirect("/auth");
 
+//   try {
+//     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+//     req.user = decoded;
+//     next();
+//   } catch (err) {
+//     return res.redirect("/auth");
+//   }
+// }
 
 // Setup handlebars engine and view location
 app.set("view engine", "hbs");
@@ -55,17 +57,17 @@ app.get("/auth", (req, res) => {
 });
 
 // Homepage
-app.get("/homepage", (req, res) => {
+app.get("/homepage", auth, (req, res) => {
   res.render("homepage"); //res -> Render -> homepage (homepage.hbs)
 });
 
 // Resources
-app.get("/resources", (req, res) => {
+app.get("/resources", auth, (req, res) => {
   res.render("resources"); //res -> Render -> resources Page (resources.hbs)
 });
 
 // About Us
-app.get("/About", (req, res) => {
+app.get("/about", (req, res) => {
   res.render("about"); //res -> Render -> About Us Page (about.hbs)
 });
 

@@ -5,14 +5,14 @@ const {
 } = require('../services/journalService.js');
 
 async function createJournal(req, res) {
-  if (!req.session.userId) {
+  if (!req.user.id) {
     return res.redirect('/login');
   }
 
   const { title, content } = req.body;
 
   try {
-    const journalId = await createJournalEntry(req.session.userId, title, content);
+    const journalId = await createJournalEntry(req.user.id, title, content);
     res.status(201).json({ message: 'Journal created!', journalId });
   } catch (error) {
     console.error(error);
@@ -21,12 +21,12 @@ async function createJournal(req, res) {
 }
 
 async function getAllJournalEntries(req, res) {
-  if (!req.session.userId) {
+  if (!req.user.id) {
     return res.redirect('/login');
   }
 
   try {
-    const journalEntries = await getJournalEntries(req.session.userId);
+    const journalEntries = await getJournalEntries(req.user.id);
     res.status(200).json({ journalEntries });
   } catch (error) {
     console.error(error);
@@ -35,20 +35,20 @@ async function getAllJournalEntries(req, res) {
 }
 
 async function deleteJournal(req, res) {
-  if (!req.session.userId) {
+  if (!req.user.id) {
     return res.redirect('/login');
   }
 
   const { journalId } = req.params;
 
   try {
-    await deleteJournalById(req.session.userId, journalId);
+    await deleteJournalById(req.user.id, journalId);
 
     if (result.affectedRows === 0) {
       return res.status(404).json({ message: 'Journal entry not found' });
     }
 
-    const remainingEntries = await getJournalEntries(req.session.userId);
+    const remainingEntries = await getJournalEntries(req.user.id);
 
     res.status(200).json({
       message: 'Journal entry deleted',
