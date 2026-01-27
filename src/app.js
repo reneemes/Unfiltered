@@ -20,7 +20,7 @@ hbs.registerPartials(partialsPath);
 app.use(express.static(publicDirectoryPath));
 
 // Landing Page
-app.get("", (req, res) => {
+app.get("/", (req, res) => {
   res.render("landing-page"); //res -> Render -> landing Page (landing.hbs)
 });
 
@@ -30,7 +30,7 @@ app.get("/login", (req, res) => {
 });
 
 // Account Creation
-app.get("/Account", (req, res) => {
+app.get("/account", (req, res) => {
   res.render("account-creation-page"); //res -> Render -> Account Creation Page (account-creation-page.hbs)
 });
 
@@ -45,15 +45,15 @@ app.get("/resources", (req, res) => {
 });
 
 // About Us
-app.get("/About", (req, res) => {//res -> Render -> About Us Page (about.hbs)
+app.get("/about", (req, res) => {//res -> Render -> About Us Page (about.hbs)
   res.render("about", {
-team: [
-  { name: 'Renee', role: 'TeamLead', image: '/img/renee.png'},
-  { name: 'Cynthia', role: 'Front-end', image: '/img/cynthia.png'},
-  { name: 'Imani', role: 'Back-end', image: '/img/imani.png'},
-  { name: 'Elhadji', role: 'Front-end', image: '/img/elhadji.png'},
-  { name: 'Amadeo', role: 'Front-end', image: '/img/Aqr.png'} 
-]
+    team: [
+      { name: 'Renee Messersmith', role: 'Team Lead', image: '/img/renee.png'},
+      { name: 'Cynthia Rincon', role: 'Front-end', image: '/img/cynthia.png'},
+      { name: 'Imani Moore', role: 'Back-end', image: '/img/imani.png'},
+      { name: 'Elhadji Massow Ndiaye', role: 'Front-end', image: '/img/elhadji.png'},
+      // { name: 'Amadeo', role: 'Front-end', image: '/img/Aqr.png'} 
+    ]
   });
 });
 
