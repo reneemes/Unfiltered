@@ -43,6 +43,14 @@
 
       <!-- Signup Form (hidden by default) -->
       <form id="signupForm" class="auth-form hidden" action="/api/signup" method="POST">
+
+        <div class="input-group">
+          <label 
+          for="signupFirstName">First Name</label>
+          <input type="text"
+          id="signupFirstName" name="firstname" required>
+        </div>
+
         <div class="input-group">
           <label for="signupUsername">Username</label>
           <input type="text" id="signupUsername" name="username" required>
