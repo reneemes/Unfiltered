@@ -93,11 +93,18 @@ body {
   padding: 1.5rem;
   gap: 1rem;
 }
+.contact .contact-form__sent-message {
+  display: none;
+}
 .contact .contact-form label {
   color: #222;
   font-size: 1rem;
   text-transform: uppercase;
   font-weight: bold;
+}
+.contact .contact-form label:after {
+  content: " *";
+  color: firebrick;
 }
 .contact .contact-form input,
 .contact .contact-form textarea,
@@ -133,6 +140,14 @@ body {
 }
 .contact .contact-form__btn:hover {
   opacity: 0.85;
+}
+
+.error {
+  border-color: red;
+}
+
+.success {
+  border-color: green;
 }
 
 @media screen and (min-width: 768px) {

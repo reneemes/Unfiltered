@@ -112,7 +112,7 @@ body {
     margin-top: 0;
     padding: 10px;
   }
-
+  
   .contact-form {
     @include center;
     align-items: stretch;
@@ -121,11 +121,20 @@ body {
     padding: 1.5rem;
     gap: 1rem;
 
+    &__sent-message {
+      display: none;
+    }
+
     label {
       color: $text-dark;
       font-size: 1rem;
       text-transform: uppercase;
       font-weight: bold;
+      
+      &:after {
+        content: " *";
+        color: firebrick;
+      }
     }
 
     input,
@@ -169,6 +178,16 @@ body {
     }
   }
 }
+
+.error {
+  border-color: red;
+}
+.success {
+  border-color: green;
+}
+// .hidden {
+//   display: none!important;
+// }
 
 @media screen and (min-width: $tablet) {
   .team {
