@@ -29,6 +29,7 @@ body {
 .title-section h2 {
   margin: 5px 0 0 0;
   font-size: 24px;
+  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -145,6 +146,4 @@ body {
     font-size: 32px;
     width: 300px;
   }
-}
-
-/*# sourceMappingURL=resources.css.map */
+}/*# sourceMappingURL=resources.css.map */

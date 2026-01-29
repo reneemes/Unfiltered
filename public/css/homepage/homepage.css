@@ -29,12 +29,14 @@ body {
   margin: 0;
   font-size: 20px;
   padding-left: 10px;
+  width: -moz-fit-content;
   width: fit-content;
 }
 .title-section h2 {
   margin: 5px 0 0 0;
   font-size: 28px;
   background-color: #e3f564;
+  width: -moz-fit-content;
   width: fit-content;
   padding: 10px;
   border-radius: 30px;
@@ -224,6 +226,11 @@ textarea {
   transition: border 0.3s, box-shadow 0.3s;
 }
 
+.journal-section textarea::-moz-placeholder {
+  color: #999;
+  font-style: italic;
+}
+
 .journal-section textarea::placeholder {
   color: #999;
   font-style: italic;
@@ -338,6 +345,4 @@ textarea {
     color: #000000;
     font-size: 16px;
   }
-}
-
-/*# sourceMappingURL=homepage.css.map */
+}/*# sourceMappingURL=homepage.css.map */
