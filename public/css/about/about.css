@@ -1,254 +1,159 @@
 body {
   margin: 0;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  background-color: #abc6cd;
-  color: #222;
 }
 
-.about {
-  width: 100%;
-  margin: 0 auto;
-  background: #ebf7fc;
-  display: flex;
-  flex-direction: column;
+.about__sec {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 60px;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  display: inline-block;
 }
-.about .about_intro {
-  background: #e3f564;
-  padding: 1.5rem;
+.about__title--name {
+  background: linear-gradient(to right, #16a39e, #d4e157);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about-intro {
   text-align: center;
-  order: 1;
+  background: #e3f564;
 }
-.about h2 {
-  margin-top: 0.5rem 0;
-  font-weight: bold;
+.about-intro__title, .about-intro__sub-title {
   color: #22505c;
-  font-size: 1.5rem;
 }
-.about p {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  margin: 0.5rem 0;
-}
-
-.aboutTitle {
-  color: #22505c;
-  font-size: 1.3rem;
+.about-intro__title {
+  font-size: 2rem;
   letter-spacing: 1px;
-  margin-bottom: 0.5rem;
-  margin-top: 0;
+  margin: 0;
+  padding: 20px 20px 10px;
 }
-
-.about > div :first-child {
-  background: #e3f564;
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: clamp(2rem, 8vw, 3.75rem) !important;
+.about-intro__sub-title {
+  font-size: 1.5rem;
+  margin: 0 0 20px;
+}
+.about-intro__body {
+  font-size: 1.1rem;
+  padding: 10px 30px;
 }
 
 .team {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem 1rem;
-  padding: 2rem 1.5rem;
-  order: 2;
-}
-
-.teamMember {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  gap: 0.5rem;
 }
-.teamMember img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
+.team .team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.team .team-member__img {
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
   object-fit: cover;
 }
-.teamMember h3 {
-  font-size: 1rem;
+.team .team-member__name, .team .team-member__role {
   margin: 0;
-  font-weight: bold;
-  line-height: 1.2;
 }
-.teamMember p {
-  font-size: 0.85rem;
-  margin: 0;
-  color: #222;
-  line-height: 1.2;
+.team .team-member__name {
+  font-size: 2rem;
+}
+.team .team-member__role {
+  font-size: 1.5rem;
 }
 
 .contact {
-  padding: 2rem 1.5rem;
-  order: 3;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
 }
-.contact h2 {
+.contact__title {
   text-align: center;
-  margin: 0 0 1.5rem 0;
-  color: #222;
   font-size: 1.5rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  margin: 30px 0 0;
 }
-
-.contactForm {
-  background-color: rgba(171, 198, 205, 0.5);
-  padding: 1.5rem;
-  border-radius: 20px;
+.contact__message {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 0;
+  padding: 10px;
+}
+.contact .contact-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  align-items: stretch;
+  border-radius: 20px;
+  background-color: rgba(171, 198, 205, 0.5);
+  padding: 1.5rem;
   gap: 1rem;
-  max-width: 100%;
+  margin-bottom: 100px;
 }
-.contactForm label {
-  font-size: 0.75rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: -0.5rem;
+.contact .contact-form label {
   color: #222;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
 }
-.contactForm input,
-.contactForm textarea,
-.contactForm select {
-  padding: 0.6rem;
-  font-size: 0.9rem;
-  border-radius: 8px;
+.contact .contact-form input,
+.contact .contact-form textarea,
+.contact .contact-form select {
   border: 2px solid transparent;
-  transition: border-color 0.2 ease;
-  font-size: inherit;
+  border-radius: 8px;
   background: white;
+  font-size: inherit;
+  width: 100%;
+  padding: 0.6rem;
+  transition: border-color 0.2 ease;
 }
-.contactForm textarea {
+.contact .contact-form textarea {
   resize: vertical;
   min-height: 80px;
 }
-.contactForm select {
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 0.75rem center;
-  padding-right: 2.5rem;
+.contact .contact-form .select-wrap {
+  position: relative;
 }
-.contactForm button {
-  margin-top: 1rem;
+.contact .contact-form__btn {
+  border: none;
+  border-radius: 10px;
   align-self: center;
   background-color: #222;
   color: white;
-  border: none;
-  padding: 0.75rem 3rem;
-  border-radius: 10px;
-  cursor: pointer;
   font-size: 0.9rem;
   font-weight: bold;
   text-transform: uppercase;
+  margin-top: 1rem;
+  padding: 0.75rem 3rem;
   transition: opacity 0.2s ease;
+  cursor: pointer;
 }
-.contactForm button:hover {
+.contact .contact-form__btn:hover {
   opacity: 0.85;
 }
 
-.contactForm input,
-.contactForm textarea {
-  border: 2px solid transparent;
-  transition: border-color 0.2s ease;
-}
-.contactForm .error {
-  border-color: red;
-}
-.contactForm .success {
-  border-color: green;
-}
-
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .team {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem 1.5rem;
-    padding: 2.5rem 2rem;
-  }
-  .teamMember img {
-    width: 100px;
-    height: 100px;
-  }
-  .contact {
-    max-width: 600px;
+    display: grid;
+    grid-template-columns: repeat(2, 400px);
+    width: max-content;
     margin: 0 auto;
+  }
+  .about-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .about-intro__body {
+    max-width: 50%;
   }
 }
 @media (min-width: 1024px) {
-  .about {
-    max-width: 100%;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    grid-template-rows: auto 1fr;
-    min-height: 100vh;
-  }
-  .about > div:first-child {
-    display: none;
-  }
-  .about_intro {
-    grid-column: 2/3;
-    grid-row: 1/2;
-    order: unset;
-    padding: 2.5rem 2rem;
-    text-align: center;
-  }
-  .about_intro h2 {
-    font-size: 1.8rem;
-  }
-  .about_intro p {
-    font-size: 1rem;
-    max-width: 600px;
-    margin: 1rem auto;
-  }
-  .aboutTitle {
-    font-size: 1.5rem;
-  }
-  .team {
-    grid-column: 2/3;
-    grid-row: 2/3;
-    order: unset;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem 2rem;
-    padding: 2rem 3rem;
-    align-content: start;
-  }
-  .teamMember img {
-    width: 110px;
-    height: 110px;
-  }
-  .teamMember h3 {
-    font-size: 1.1rem;
-  }
-  .teamMember p {
-    font-size: 0.9rem;
-  }
-  .contact {
-    grid-column: 2/3;
-    grid-row: 3/4;
-    order: unset;
-    max-width: 450px;
-    margin: 0 auto;
-    padding: 2rem 2rem 3rem;
-  }
-  .contact h2 {
-    font-size: 1.8rem;
-  }
-  .contactForm {
-    padding: 2rem;
-    gap: 1.25rem;
-  }
-  .contactForm input,
-  .contactForm textarea,
-  .contactForm select {
-    padding: 0.85rem;
-  }
-}
-@media (min-width: 1440px) {
-  .team {
-    grid-template-columns: repeat(5, 1fr);
-    max-width: 1400px;
-    margin: 0 auto;
+  main {
+    margin-left: 80px;
   }
 }
 
