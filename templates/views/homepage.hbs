@@ -2,8 +2,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/homepage/homepage.css" />
-    <link rel="stylesheet" href="/css/partials/nav.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/homepage/homepage.css" />
+    <link rel="stylesheet" href="css/partials/nav.css">
     <title>Unfiltered | Homepage</title>
   </head>
 
@@ -14,14 +18,14 @@
 
           <!-- TITLE SECTION -->
         <div class="title-section">
-          <h1>CHOOSE YOUR</h1>
-          <h2>WELL-BEING</h2>
+          <h1>Hi, <span class="user-name">Elhadji</span></h1>
+          <h1>How are you doing today?</h1>
         </div>
 
         <!-- PROFILE SECTION -->
         <div class="profile-section">
           <img src="img/profile-pic.png" alt="Profile Picture" />
-          <span>Account</span>
+          <span>Profile</span>
         </div>    
       </section>
       
@@ -52,47 +56,48 @@
 
         <!-- MOOD SECTION -->
         <div class="mood-section">
-          <p class="mood-title">What’s your mood today?</p>
+          <p class="mood-title">Daily mood</p>
 
-          <div class="mood-buttons">
-            <button class="mood-btn happy">
-              <span class="emoji">😊</span>
-              <span class="label">Happy</span>
+          <div class="mood-options">
+
+            <button class="mood-btn happy active">
+              <img src="img/emoji/happy.png" alt="Happy enmoji">
+              <p>Happy</p>
             </button>
 
             <button class="mood-btn sad">
-              <span class="emoji">😔</span>
-              <span class="label">Sad</span>
+              <img src="img/emoji/sad.png" alt="Sad enmoji">
+              <p>Sad</p>
             </button>
 
             <button class="mood-btn angry">
-              <span class="emoji">😠</span>
-              <span class="label">Angry</span>
+              <img src="img/emoji/angry.png" alt="Angry enmoji">
+              <p>Angry</p>
             </button>
 
             <button class="mood-btn anxious">
-              <span class="emoji">😰</span>
-              <span class="label">Anxious</span>
+              <img src="img/emoji/anxious.png" alt="Anxious enmoji">
+              <p>Anxious</p>
             </button>
 
             <button class="mood-btn excited">
-              <span class="emoji">🤩</span>
-              <span class="label">Excited</span>
+              <img src="img/emoji/excited.png" alt="Excited enmoji">
+              <p>Excited</p>
             </button>
 
             <button class="mood-btn tired">
-              <span class="emoji">😴</span>
-              <span class="label">Tired</span>
+              <img src="img/emoji/tired.png" alt="Tired enmoji">
+              <p>Tired</p>
             </button>
 
             <button class="mood-btn calm">
-              <span class="emoji">😌</span>
-              <span class="label">Calm</span>
+              <img src="img/emoji/calm.png" alt="Calm enmoji">
+              <p>Calm</p>
             </button>
 
             <button class="mood-btn stressed">
-              <span class="emoji">😫</span>
-              <span class="label">Stressed</span>
+              <img src="img/emoji/stressed.png" alt="Stressed enmoji">
+              <p>Stressed</p>
             </button>
           </div>
         </div>
@@ -108,8 +113,8 @@
         </div>
 
         <!-- EXTRA SECTION -->
-        <div class="extra-section" id="extraSection">
-          EXTRA SECTION
+        <div class="journal-history" id="journalHistory">
+          <label for="">Journal History</label>
         </div>
       </section>
       <div class="reserved-rights">
@@ -118,31 +123,6 @@
     </main>
      {{> nav }} 
   </body>
-  <script src="/js/journal.js"></script>
-
-
-  <!-- DATE LOGIC FOR AUTOMATIC CHANGE DAILY -->
-  <script>
-    const dayNumbers = document.querySelectorAll(".day-number");
-    const dayContainers = document.querySelectorAll(".day");
-
-    const today = new Date();
-    const todayIndex = today.getDay(); // 0 = Sunday, 6 = Saturday
-
-    // Find Sunday of the current week
-    const sunday = new Date(today);
-    sunday.setDate(today.getDate() - todayIndex);
-
-      dayNumbers.forEach((span, index) => {
-        const currentDay = new Date(sunday);
-        currentDay.setDate(sunday.getDate() + index);
-
-        span.textContent = currentDay.getDate();
-
-        // Highlight today
-        if (index === todayIndex) {
-          dayContainers[index].classList.add("today");
-        }
-    });
-  </script>
+  <script src="js/journal.js"></script>
+  <script src="js/homepage.js"></script>
 </html>
