@@ -37,14 +37,13 @@ signupTab.addEventListener('click', showSignup);
 
 // ---------- Handle Login Form Submit ----------
 loginForm.addEventListener('submit', async (e) => {
-  e.preventDefault(); // Stop default form submission
+  e.preventDefault();
   
   const username = document.getElementById('loginUsername').value;
   const password = document.getElementById('loginPassword').value;
   
   try {
-    // Send to backend
-    const response = await fetch('/api/login', {
+    const response = await fetch('/auth/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -54,11 +53,11 @@ loginForm.addEventListener('submit', async (e) => {
     
     const data = await response.json();
     
-    if (data.success) {
-      // Login successful - go to homepage
+    if (response.ok) {
+      // Login successful - backend sets cookie, redirect to homepage
       window.location.href = '/homepage';
     } else {
-      // Login failed - show error
+      // Login failed - show backend error message
       alert(data.message || 'Invalid username or password');
     }
   } catch (error) {
@@ -76,8 +75,7 @@ signupForm.addEventListener('submit', async (e) => {
   const password = document.getElementById('signupPassword').value;
   
   try {
-    // Send to backend
-    const response = await fetch('/api/signup', {
+    const response = await fetch('/auth/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -87,8 +85,8 @@ signupForm.addEventListener('submit', async (e) => {
     
     const data = await response.json();
     
-    if (data.success) {
-      // Signup successful - show login form
+    if (response.ok) {
+      // Signup successful - show success and switch to login
       alert('Account created! Please log in.');
       
       // Clear signup form
@@ -99,7 +97,7 @@ signupForm.addEventListener('submit', async (e) => {
       // Switch to login tab
       showLogin();
     } else {
-      // Signup failed - show error
+      // Signup failed - show backend error message
       alert(data.message || 'Could not create account');
     }
   } catch (error) {
