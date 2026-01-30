@@ -1,4 +1,4 @@
-const { createMessageEntry } = require('./services/contactService.js');
+const { createMessageEntry } = require('../services/contactService.js');
 
 async function createMessage(req, res) {
   const { 

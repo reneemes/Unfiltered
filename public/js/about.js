@@ -10,17 +10,38 @@ const reasonSelect = form.reason;
 
 characterOutput.textContent = "0 / 500";
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
-  if (validateForm()) {
+
+  if (!validateForm()) return;
+
     try {
-      // POST to DB
-      const response = await fetch("/contact")
+      const response = await fetch("/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ 
+          name: nameInput.value, 
+          email: emailInput.value, 
+          message: messageInput.value, 
+          reason: reasonSelect.value
+        }),
+      });
+
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.message || "Server error");
+      }
+
+      sentMessage.textContent = "Thank you for reaching out! We will get back with you shortly.";
+      characterOutput.textContent = "0 / 500";
       form.reset();
     } catch {
-      // Error
+      console.error("Submission error:", )
+      sentMessage.textContent = "Something went wrong. Please try again later.";
     }
-  }
 })
 
 messageInput.addEventListener("input", (e) => {
@@ -42,7 +63,7 @@ function validateForm() {
     sentMessage.style.color = "firebrick";
     return false;
   } else {
-    sentMessage.textContent = "Thank you for reaching out! We will get back with you shortly.";
+    // sentMessage.textContent = "Thank you for reaching out! We will get back with you shortly.";
     return true;
   }
 }
