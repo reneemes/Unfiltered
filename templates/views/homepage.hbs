@@ -104,13 +104,21 @@
 
         <!-- JOURNAL CONTENT -->
         <div class="journal-section">
-          <label for="journal">Your journal</label>
-          <textarea
-            id="journal"
-            placeholder="Write your daily thoughts here..."
-          ></textarea>
-          <button id="saveJournalBtn">Save</button>
-        </div>
+          <form id="journalForm">
+            <label for="journalTitle">Title</label>
+            <input
+              type="text"
+              id="journalTitle"
+              placeholder="Write your title here..." required/>
+
+            <label for="journal">Your journal</label>
+            <textarea
+              id="journal"
+              placeholder="Write your daily thoughts here..." required></textarea>
+
+            <button id="saveJournalBtn">Save</button>
+          </form>
+      </div>
 
         <!-- EXTRA SECTION -->
         <div class="journal-history" id="journalHistory">

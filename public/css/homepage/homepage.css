@@ -221,7 +221,32 @@ body {
   background-color: #abc6cd;
 }
 
-textarea {
+.journal-section #journalTitle {
+  width: 100%;
+  padding: 20px;
+  font-size: 1.1rem;
+  font-family: inherit;
+  font-weight: 200;
+  line-height: 1.6;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background-color: #fefefe;
+  color: #999;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+.journal-section #journalTitle::placeholder {
+  color: #999;
+  font-style: italic;
+  font-weight: 200;
+}
+.journal-section #journalTitle:focus {
+  border-color: #abc6cd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+}
+
+.journal-section textarea {
   width: 100%;
   min-height: 250px;
   padding: 20px;
@@ -236,6 +261,15 @@ textarea {
   color: #999;
   outline: none;
   transition: border 0.3s, box-shadow 0.3s;
+}
+.journal-section textarea::placeholder {
+  color: #999;
+  font-style: italic;
+}
+.journal-section textarea:focus {
+  border-color: #abc6cd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
 }
 
 .journal-section textarea::placeholder {
@@ -334,7 +368,7 @@ textarea {
     justify-content: center;
   }
   textarea {
-    height: 350px;
+    height: 300px;
   }
   .mood-section .mood-options {
     display: grid;

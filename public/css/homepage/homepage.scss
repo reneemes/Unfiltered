@@ -262,8 +262,40 @@ body {
   }
 }
 
+// Journal Section Title
+.journal-section #journalTitle {
+  width: 100%;
+  padding: 20px;
+  font-size: 1.1rem;
+  font-family: inherit;
+  font-weight: 200;
+  line-height: 1.6;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background-color: $text-area-bg;
+  color: $text-area;
+  outline: none;
+  transition:
+    border 0.3s,
+    box-shadow 0.3s;
+
+  // Placeholder styling
+  &::placeholder {
+    color: $text-area;
+    font-style: italic;
+    font-weight: 200;
+  }
+
+  // Focus styling
+  &:focus {
+    border-color: $teal;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+  }
+}
+
 // Journal Section Textarea
-textarea {
+.journal-section textarea {
   width: 100%;
   min-height: 250px;
   padding: 20px;
@@ -276,10 +308,23 @@ textarea {
   border: 1px solid #ccc;
   background-color: $text-area-bg;
   color: $text-area;
-  outline: none; // removes default focus outline
+  outline: none;
   transition:
     border 0.3s,
     box-shadow 0.3s;
+
+  // Placeholder styling
+  &::placeholder {
+    color: $text-area;
+    font-style: italic;
+  }
+
+  // Focus styling
+  &:focus {
+    border-color: $teal;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+  }
 }
 
 // Placeholder styling
@@ -416,7 +461,7 @@ textarea {
 
   //Text Box
   textarea {
-    height: 350px;
+    height: 300px;
   }
 
   // Mood Options
