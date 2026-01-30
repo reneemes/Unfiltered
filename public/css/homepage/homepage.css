@@ -316,7 +316,7 @@ body {
     display: grid;
     grid-template-columns: 1.4fr 1fr 0.9fr;
     grid-template-rows: auto auto auto;
-    grid-template-areas: "week . graph" "journal journal mood" "history history history";
+    grid-template-areas: "week . ." "journal journal graph" "journal journal mood" "history history history";
     gap: 0px;
   }
   .journal-section {
@@ -357,7 +357,7 @@ body {
     display: grid;
     grid-template-columns: 1.4fr 1fr 0.9fr;
     grid-template-rows: auto auto auto auto;
-    grid-template-areas: "week   .  graph" "journal history mood";
+    grid-template-areas: "week   .  ." "journal history graph" "journal history mood";
     gap: 16px;
   }
   .days-container {
@@ -370,7 +370,7 @@ body {
     justify-content: center;
   }
   textarea {
-    height: 300px;
+    height: 570px;
   }
   .mood-section .mood-options {
     display: grid;

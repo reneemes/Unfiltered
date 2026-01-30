@@ -52,7 +52,9 @@
         </section>
 
         <!-- GRAPH SECTION -->
-        <div class="graph-section">GRAPH SECTION</div>
+        <div class="graph-section">
+          <div id="myChart" style="max-width:700px; height:400px"></div>
+        </div>
 
         <!-- MOOD SECTION -->
         <div class="mood-section">
@@ -120,7 +122,7 @@
           </form>
       </div>
 
-        <!-- EXTRA SECTION -->
+        <!-- JOURNAL HISTORY SECTION -->
         <div class="journal-history" id="journalHistory">
           <label for="">Journal History</label>
         </div>
@@ -131,6 +133,8 @@
     </main>
      {{> nav }} 
   </body>
-  <script src="js/journal.js"></script>
+  <script src="https://www.gstatic.com/charts/loader.js"></script> <!-- Google Chart -->
   <script src="js/homepage.js"></script>
+  <script src="js/journal.js"></script>
+  
 </html>

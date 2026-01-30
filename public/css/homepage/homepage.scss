@@ -383,7 +383,8 @@ body {
     grid-template-columns: 1.4fr 1fr 0.9fr;
     grid-template-rows: auto auto auto;
     grid-template-areas:
-      "week . graph"
+      "week . ."
+      "journal journal graph"
       "journal journal mood"
       "history history history";
 
@@ -444,7 +445,8 @@ body {
     grid-template-columns: 1.4fr 1fr 0.9fr;
     grid-template-rows: auto auto auto auto;
     grid-template-areas:
-      "week   .  graph"
+      "week   .  ."
+      "journal history graph"
       "journal history mood";
     gap: 16px;
   }
@@ -463,7 +465,7 @@ body {
 
   //Text Box
   textarea {
-    height: 300px;
+    height: 570px;
   }
 
   // Mood Options
