@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  font-family: "Open Sans", sans-serif;
 }
 
 .about__sec {
@@ -59,6 +60,7 @@ body {
 }
 .team .team-member__name, .team .team-member__role {
   margin: 0;
+  text-align: center;
 }
 .team .team-member__name {
   font-size: 2rem;
@@ -94,11 +96,18 @@ body {
   gap: 1rem;
   margin-bottom: 100px;
 }
+.contact .contact-form__sent-message {
+  display: none;
+}
 .contact .contact-form label {
   color: #222;
   font-size: 1rem;
   text-transform: uppercase;
   font-weight: bold;
+}
+.contact .contact-form label:after {
+  content: " *";
+  color: firebrick;
 }
 .contact .contact-form input,
 .contact .contact-form textarea,
@@ -134,6 +143,10 @@ body {
 }
 .contact .contact-form__btn:hover {
   opacity: 0.85;
+}
+
+.error {
+  border: 2px solid red;
 }
 
 @media screen and (min-width: 768px) {
