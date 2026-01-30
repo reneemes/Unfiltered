@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -9,19 +8,21 @@
 </head>
 <body>
 
-  <main class="auth-container">
-    <!-- Logo -->
-    <header class="logo-header" role="banner">
-      <div class="logo-text">
-        <span class="logo-un">UN</span><span class="logo-filtered">FILTERED</span>
-      </div>
-    </header>
+    <main class="auth-container">
+      <!-- Logo -->
+      <header class="logo-header" role="banner">
+        <div class="logo-text">
+          <span class="logo-un">UN</span><span
+            class="logo-filtered"
+          >FILTERED</span>
+        </div>
+      </header>
 
-    <!-- Tab Toggle -->
-    <div class="tab-toggle">
-      <button id="loginTab" class="tab-btn active">Log In</button>
-      <button id="signupTab" class="tab-btn">Sign Up</button>
-    </div>
+      <!-- Tab Toggle -->
+      <div class="tab-toggle">
+        <button id="loginTab" class="tab-btn active">Log In</button>
+        <button id="signupTab" class="tab-btn">Sign Up</button>
+      </div>
 
     <!-- Auth Card -->
     <div class="auth-card">
@@ -64,13 +65,16 @@
         <button type="submit" class="submit-btn">Sign Up</button>
       </form>
 
-    </div>
+        <!-- Continue without account link -->
+        <a href="/homepage">Continue without account</a>
 
-    <!-- Back to landing -->
-    <a href="/" class="back-link">← Back to Home</a>
+      </div>
 
-  </main>
+      <!-- Back to landing -->
+      <a href="/" class="back-link">← Back to Home</a>
 
-  <script src="/js/auth.js"></script>
-</body>
+    </main>
+
+    <script src="/js/auth.js"></script>
+  </body>
 </html>
