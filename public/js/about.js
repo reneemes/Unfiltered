@@ -1,118 +1,61 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("contactForm");
-    const nameInput = form.name.value.trim();
-    const emailInput = form.email.value.trim();
-    const messageInput = form.message.value.trim();
-    const reason = form.reason.value.trim();
+const form = document.querySelector(".contact-form");
+// const submitBtn = document.querySelector(".contact-form__btn");
+const sentMessage = form.querySelector(".contact-form__sent-message");
+const characterOutput = document.querySelector("#character-output");
 
-  const submitMessage = document.querySelector(".contact-form__sent-message");
+const nameInput = form.name;
+const emailInput = form.email;
+const messageInput = form.message;
+const reasonSelect = form.reason;
 
-  /* LIVE VALIDATION */
-  nameInput.addEventListener("input", () => {
-    validateText(nameInput);
-  });
-  messageInput.addEventListener("input", () => {
-    validateText(messageInput);
-  });
-  emailInput.addEventListener("input", () => {
-    validateEmailInput(emailInput);
-  });
+characterOutput.textContent = "0 / 500";
 
-  /* VALIDATES INPUTS WHEN THEY LOSE FOCUS */
-  [nameInput, emailInput, messageInput].forEach(input => {
-    input.addEventListener("blur", () => {
-      if (input.value.trim()) {
-        input.classList.add("success");
-        input.classList.remove("error");
-      }
-    });
-  });
-
-  /* SUBMIT VALIDATION */
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const isNameValid = validateText(nameInput);
-    const isEmailValid = validateEmailInput(emailInput);
-    const isMessageValid = validateText(messageInput);
-
-    if (!isNameValid || !isEmailValid || !isMessageValid) {
-      alert("Please fix the highlighted fields.");
-      return;
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (validateForm()) {
+    try {
+      // POST to DB
+      const response = await fetch("/contact")
+      form.reset();
+    } catch {
+      // Error
     }
-    // MAKE MODEL
-    // alert("Thank you! Your message has been submitted.");
-    // submitMessage.classList.remove('hidden');
-    form.reset();
-    clearStyles();
-  });
-});
+  }
+})
 
-/* HELPER METHODS */
+messageInput.addEventListener("input", (e) => {
+  const currentLength = messageInput.value.length;
+  characterOutput.textContent = `${currentLength} / 500`;
+})
+
 function validateForm() {
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;
+
   if (
     nameInput.value === "" ||
     emailInput.value === "" ||
+    !regex.test(emailInput.value) ||
     messageInput.value === "" ||
-    commentBox.value === "" ||
-    reason.value === ""
+    reasonSelect.value === ""
   ) {
-    errorBox.textContent = 'Please fill out all required forms.';
-    errorBox.style.color = 'firebrick';
+    sentMessage.textContent = "Please fill out all required forms.";
+    sentMessage.style.color = "firebrick";
+    return false;
   } else {
-    alert('Thank you for reaching out to Bagel Bites! We will get back to you shortly.');
-    clearForm();
+    sentMessage.textContent = "Thank you for reaching out! We will get back with you shortly.";
+    return true;
   }
 }
 
-// function validateText(input) {
-//   if (!input.value.trim()) {
-//     input.classList.add("error");
-//     input.classList.remove("success");
-//     return false;
-//   }
-
-//   input.classList.remove("error");
-//   input.classList.add("success");
-//   return true;
+// function clearForm() {
+//   firstName.value = '';
+//   lastName.value = '';
+//   email.value = '';
+//   commentBox.value = '';
+//   errorBox.textContent = '';
 // }
 
-// function validateEmailInput(input) {
-//   if (!validateEmail(input.value.trim())) {
-//     input.classList.add("error");
-//     input.classList.remove("success");
-//     return false;
-//   }
-
-//   input.classList.remove("error");
-//   input.classList.add("success");
-//   return true;
-// }
-
-
-// function validateText(input) {
-//   if (!input.value.trim()) {
-//     input.classList.add("error");
-//     input.classList.remove("success");
-//     return false;
-//   }
-//   return true;
-// }
-
-// function validateEmailInput(input) {
-//   if (!validateEmail(input.value.trim())) {
-//     input.classList.add("error");
-//     input.classList.remove("success");
-//     return false;
-//   }
-//   return true;
-// }
-
-// function validateEmail(email) {
-//   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-// }
-
-// function clearStyles() {
-//   document
-//     .querySelectorAll(".error, .success")
-//     .forEach(el => el.classList.remove("error", "success"));
+// function showError(msg) {
+//   sentMessage.textContent = msg;
+//   sentMessage.style.color = "firebrick";
 // }
