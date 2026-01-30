@@ -177,13 +177,15 @@ body {
       transform: scale(1.05);
     }
 
-    img {
+    .emoji {
       height: 40px;
       width: 40px;
+      font-size: 30px;
       @media (min-width: 1024px) {
         // desktop
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
+        font-size: 40px;
       }
     }
 
@@ -468,7 +470,7 @@ body {
   .mood-section {
     .mood-options {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 

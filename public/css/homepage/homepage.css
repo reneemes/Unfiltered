@@ -143,14 +143,16 @@ body {
   filter: brightness(0.8);
   transform: scale(1.05);
 }
-.mood-section .mood-btn img {
+.mood-section .mood-btn .emoji {
   height: 40px;
   width: 40px;
+  font-size: 30px;
 }
 @media (min-width: 1024px) {
-  .mood-section .mood-btn img {
-    width: 80px;
-    height: 80px;
+  .mood-section .mood-btn .emoji {
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
   }
 }
 .mood-section .mood-btn p {
@@ -372,7 +374,7 @@ body {
   }
   .mood-section .mood-options {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
   button.mood-btn.active {
     filter: brightness(0.8);
