@@ -31,14 +31,14 @@ app.set("view engine", "hbs");
 app.set("views", viewsPath);
 hbs.registerPartials(partialsPath);
 
+// Setup static directory to serve
 app.use(express.static(publicDirectoryPath));
 
 // Landing Page
 app.get("/", (req, res) => {
-// Landing Page5
-app.get("", (req, res) => {
-  res.render("landing"); //res -> Render -> landing Page (landing.hbs)
+  res.render("landing"); // Renders landing.hbs
 });
+
 
 // Login
 app.get("/login", (req, res) => {
@@ -97,8 +97,6 @@ app.get("/about", (req, res) => {
   });
 });
 
-// Setup static directory to serve
-app.use(express.static(publicDirectoryPath));
 
 // routes for Journal, Mood, and Login
 app.use("/auth", authRoutes);

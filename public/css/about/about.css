@@ -54,7 +54,8 @@ body {
   height: 200px;
   width: 200px;
   border-radius: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .team .team-member__name, .team .team-member__role {
   margin: 0;
@@ -139,6 +140,7 @@ body {
   .team {
     display: grid;
     grid-template-columns: repeat(2, 400px);
+    width: -moz-max-content;
     width: max-content;
     margin: 0 auto;
   }
@@ -155,6 +157,4 @@ body {
   main {
     margin-left: 80px;
   }
-}
-
-/*# sourceMappingURL=about.css.map */
+}/*# sourceMappingURL=about.css.map */
