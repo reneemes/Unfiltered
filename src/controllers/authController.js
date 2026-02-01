@@ -4,14 +4,14 @@ const connection = require('../db.js');
 
 // SIGN UP
 exports.signup = async (req, res) => {
-  const { firstName, username, password } = req.body;
+  const { firstName, username, password, profileImg } = req.body;
 
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const [result] = await connection.promise().query(
-      "INSERT INTO users (first_name, username, password) VALUES (?, ?, ?)",
-      [firstName, username, hashedPassword]
+      "INSERT INTO users (first_name, username, password, profile_img) VALUES (?, ?, ?, ?)",
+      [firstName, username, hashedPassword, profileImg]
     );
 
     res.status(201).json({
