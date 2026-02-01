@@ -13,7 +13,6 @@ function formatDate(dateString) {
 }
 
 /* ==== FETCH ALL JOURALS ==== */
-
 async function fetchJournals() {
   try {
     const res = await fetch("/journal", {
