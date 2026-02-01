@@ -1,3 +1,6 @@
+let currentRange = "week";
+
+// DOM READY
 document.addEventListener("DOMContentLoaded", () => {
   // ======= Active Emoji Button =======
   const buttons = document.querySelectorAll(".mood-btn");
@@ -5,6 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", () => {
       buttons.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
+
+      const mood = btn.dataset.mood;
+      saveMood(mood)
     });
   });
 
@@ -31,20 +37,20 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // FETCH MOODS ON PAGE LOAD
-  fetchMoods("week");
+  fetchMoods(currentRange);
 
   const rangeBtns = document.querySelectorAll("button[data-range]");
   rangeBtns.forEach(btn => {
     btn.addEventListener("click", () => {
-      const range = btn.dataset.range;
-      fetchMoods(range);
+      currentRange = btn.dataset.range;
+      fetchMoods(currentRange);
     })
   })
 });
 
 // GOOGLE CHART
 google.charts.load("current", { packages: ["corechart"] });
-google.charts.setOnLoadCallback(drawChart);
+// google.charts.setOnLoadCallback(drawChart);
 
 function drawChart(moods, range = "week") {
   range = range[0].toUpperCase() + range.slice(1);
@@ -105,4 +111,23 @@ function formatChartData(moods = []) {
       count, moodColors[mood]
     ])
   ];
+}
+
+async function saveMood(mood) {
+  try {
+    const response = await fetch("/mood", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ mood }),
+    });
+
+    if (response.ok) {
+      fetchMoods(currentRange);
+    }
+  } catch (error) {
+    console.error('Mood save error:', error);
+  }
 }

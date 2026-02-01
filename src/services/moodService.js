@@ -5,9 +5,9 @@ async function createMoodEntry(userId, mood) {
     .promise()
     .query(`
       INSERT INTO mood (mood, user_id, mood_date)
-      VALUES (?, ?, CURDATE()) AS new
+      VALUES (?, ?, CURDATE())
       ON DUPLICATE KEY UPDATE
-        mood = new.mood,
+        mood = VALUES(mood),
         created_at = CURRENT_TIMESTAMP;
       `, [
         mood,
