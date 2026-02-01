@@ -1,8 +1,8 @@
-const { 
-  createJournalEntry, 
-  getJournalEntries, 
-  deleteJournalById 
-} = require('../services/journalService.js');
+const {
+  createJournalEntry,
+  getJournalEntries,
+  deleteJournalById,
+} = require("../services/journalService.js");
 
 async function createJournal(req, res) {
   if (!req.user?.id) {
@@ -13,10 +13,10 @@ async function createJournal(req, res) {
 
   try {
     const journalId = await createJournalEntry(req.user.id, title, content);
-    res.status(201).json({ message: 'Journal created!', journalId });
+    res.status(201).json({ message: "Journal created!", journalId });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Unable to save journal entry.' });
+    res.status(500).json({ error: "Unable to save journal entry." });
   }
 }
 
@@ -30,7 +30,7 @@ async function getAllJournalEntries(req, res) {
     res.status(200).json({ journalEntries });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Unable to retrieve journal entries.' });
+    res.status(500).json({ error: "Unable to retrieve journal entries." });
   }
 }
 
@@ -42,26 +42,26 @@ async function deleteJournal(req, res) {
   const { journalId } = req.params;
 
   try {
-    await deleteJournalById(req.user.id, journalId);
+    const result = await deleteJournalById(req.user.id, journalId);
 
     if (result.affectedRows === 0) {
-      return res.status(404).json({ message: 'Journal entry not found' });
+      return res.status(404).json({ message: "Journal entry not found" });
     }
 
     const remainingEntries = await getJournalEntries(req.user.id);
 
     res.status(200).json({
-      message: 'Journal entry deleted',
-      journalEntries: remainingEntries
+      message: "Journal entry deleted",
+      journalEntries: remainingEntries,
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Unable to delete journal entry.' });
+    res.status(500).json({ error: "Unable to delete journal entry." });
   }
 }
 
 module.exports = {
   createJournal,
   getAllJournalEntries,
-  deleteJournal
+  deleteJournal,
 };
