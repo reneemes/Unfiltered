@@ -42,6 +42,10 @@ const fetchFacilityLocations = async (searchLocation, radius = 50) => {
     }
 
     const geocodeData = await geocodeResult.json();
+    console.log("GEOCODE----!!!!!!!!!!!!");
+    console.log(geocodeData);
+    console.log("GEOCODE----!!!!!!!!!!!!");
+
     const lat = geocodeData[0]?.lat;
     const lon = geocodeData[0]?.lon;
 
@@ -78,7 +82,10 @@ const fetchFacilityLocations = async (searchLocation, radius = 50) => {
     }
 
     const data = await response.json();
+    console.log("OVERPASSSAPI!!!!!!!!!!!!!!---------------------");
     console.log(data);
+    console.log("OVERPASSSAPI!!!!!!!!!!!!!!---------------------");
+
     // Save to localStorage
     localStorage.setItem(cacheKey, JSON.stringify(data));
 
@@ -90,7 +97,7 @@ const fetchFacilityLocations = async (searchLocation, radius = 50) => {
 };
 
 function formatOverpassResults(overpassJson) {
-  return overpassJson.elements.map((element) => {
+  return overpassJson?.elements.map((element) => {
     const response = element.tags || {};
 
     const street =
@@ -102,8 +109,9 @@ function formatOverpassResults(overpassJson) {
       name: response.name,
       street,
       hours: response.opening_hours || "Not available",
-      phone: response.phone || t["contact:phone"] || "Not available",
-      website: response.website || t["contact:website"] || "Not available",
+      phone: response.phone || response["contact:phone"] || "Not available",
+      website:
+        response.website || response["contact:website"] || "Not available",
       lat: element.lat,
       lng: element.lon,
     };
@@ -118,6 +126,9 @@ searchButton.addEventListener("click", async () => {
     locationInput.value,
     radiusInput.value,
   );
+  console.log(`FETCH RESULTS ---!!!@$!@$!@$!@$!@$!@$!@$!@$`);
+  console.log(results);
+  console.log(`FETCH RESULTS ---!!!@$!@$!@$!@$!@$!@$!@$!@$`);
   resultsContainer.innerHTML = "";
 
   const formattedResults = await formatOverpassResults(results);
