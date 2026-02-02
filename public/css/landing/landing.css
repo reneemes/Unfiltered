@@ -127,28 +127,6 @@ body {
   text-decoration: underline;
 }
 
-.scroll-down {
-  display: none;
-  position: fixed;
-  right: 1.5rem;
-  bottom: 2rem;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  z-index: 100;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  opacity: 0.8;
-}
-.scroll-down:hover {
-  transform: translateY(-5px);
-  opacity: 1;
-}
-.scroll-down img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
 .about-btn-secondary {
   display: inline-block;
   background: #ffffff;
@@ -208,7 +186,7 @@ body {
 .sneak-peek .peek-content .peek-subtext {
   font-size: 1rem;
   max-width: 500px;
-  margin: 0 auto 2.5rem;
+  margin: 0 auto 1rem;
   color: rgba(0, 0, 0, 0.75);
   line-height: 1.6;
 }
@@ -319,9 +297,6 @@ body {
   .slogan {
     max-width: 400px;
   }
-  .scroll-down {
-    display: block;
-  }
   .sneak-peek {
     padding: 4rem 1.5rem;
   }
@@ -331,7 +306,7 @@ body {
   .sneak-peek .peek-content .peek-subtext {
     font-size: 1.05rem;
     max-width: 600px;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
   }
   .sneak-peek .peek-content .peek-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -388,11 +363,6 @@ body {
   .link-signup {
     font-size: 0.95rem;
   }
-  .scroll-down {
-    width: 60px;
-    height: 60px;
-    right: 2rem;
-  }
 }
 @media (min-width: 1024px) {
   .sneak-peek {
@@ -436,9 +406,5 @@ body {
   .slogan {
     font-size: 1.15rem;
     max-width: 550px;
-  }
-  .scroll-down {
-    width: 70px;
-    height: 70px;
   }
 }/*# sourceMappingURL=landing.css.map */

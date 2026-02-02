@@ -30,6 +30,7 @@ body {
   font-size: 24px;
   font-weight: 200;
   padding-left: 10px;
+  width: -moz-fit-content;
   width: fit-content;
   white-space: nowrap;
 }
@@ -349,6 +350,11 @@ body {
   outline: none;
   transition: border 0.3s, box-shadow 0.3s;
 }
+.journal-section #journalTitle::-moz-placeholder {
+  color: #999;
+  font-style: italic;
+  font-weight: 200;
+}
 .journal-section #journalTitle::placeholder {
   color: #999;
   font-style: italic;
@@ -376,6 +382,10 @@ body {
   color: #999;
   outline: none;
   transition: border 0.3s, box-shadow 0.3s;
+}
+.journal-section textarea::-moz-placeholder {
+  color: #999;
+  font-style: italic;
 }
 .journal-section textarea::placeholder {
   color: #999;
@@ -498,6 +508,4 @@ body {
     color: #000000;
     font-size: 16px;
   }
-}
-
-/*# sourceMappingURL=homepage.css.map */
+}/*# sourceMappingURL=homepage.css.map */
