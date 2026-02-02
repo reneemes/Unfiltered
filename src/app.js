@@ -40,7 +40,6 @@ app.get("/", (req, res) => {
   res.render("landing"); // Renders landing.hbs
 });
 
-
 // Login
 app.get("/login", (req, res) => {
   res.render("auth"); //res -> Render -> login Page (login.hbs)
@@ -48,31 +47,12 @@ app.get("/login", (req, res) => {
 
 // Homepage
 app.get("/homepage", auth, (req, res) => {
-  //<-- NEED ATTENTION
-  res.render("homepage"); //res -> Render -> homepage (homepage.hbs)
-});
-
-// JOURNAL ROUTE <---- NEED WORK!!
-app.use((req, res, next) => {
-  req.user = { id: 1 }; // fake logged-in user
-  next();
-});
-
-app.post("/journal", (req, res) => {
-  if (!req.user) {
-    return res.status(401).json({ message: "Not logged in" });
-  }
-
-  const { title, content } = req.body;
-
-  if (!content) {
-    return res.status(400).json({ message: "Content required" });
-  }
-
-  res.status(201).json({
-    message: "Journal created!",
-    journalId: Date.now(),
-  });
+  res.render("homepage", {
+    user: {
+      firstName: req.user.first_name,
+      profileImg: req.user.profile_img,
+    }
+  }); //res -> Render -> homepage (homepage.hbs)
 });
 
 // Resources
@@ -87,12 +67,14 @@ app.get("/about", (req, res) => {
       { name: "Renee Messersmith", role: "Team Lead", image: "/img/renee.png" },
       { name: "Cynthia Rincon", role: "Front-end", image: "/img/cynthia.png" },
       { name: "Imani Moore", role: "Back-end", image: "/img/imani.png" },
-      { name: "Elhadji Massow Ndiaye", role: "Front-end", image: "/img/elhadji.png" },
+      {
+        name: "Elhadji Massow Ndiaye",
+        role: "Front-end",
+        image: "/img/elhadji.png",
+      },
     ],
   });
 });
-
-
 
 // routes for Journal, Mood, and Login
 app.use("/auth", authRoutes);
