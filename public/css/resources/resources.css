@@ -48,6 +48,10 @@ body {
   }
 }
 
+#radiusInput {
+  display: none;
+}
+
 .profile-section {
   display: flex;
   align-items: center;
@@ -191,6 +195,9 @@ body {
     scrollbar-width: none;
     /* Hide scrollbar for IE, Edge */
     -ms-overflow-style: none;
+  }
+  #radiusInput {
+    display: inline;
   }
   .search-container {
     margin-bottom: 30px;

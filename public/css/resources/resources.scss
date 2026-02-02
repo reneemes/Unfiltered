@@ -69,6 +69,11 @@ body {
   }
 }
 
+// Hidding radius on mobile devices
+#radiusInput {
+  display: none;
+}
+
 // Profile Section
 .profile-section {
   display: flex;
@@ -226,6 +231,11 @@ body {
       /* Hide scrollbar for IE, Edge */
       -ms-overflow-style: none;
     }
+  }
+
+  // Showing radius after breakpoint
+  #radiusInput {
+    display: inline;
   }
 
   .search-container {
