@@ -109,14 +109,19 @@ body {
 
 .search-bar {
   display: flex;
-  align-items: center;
+  align-items: center; // vertically align inputs and labels
   gap: 8px;
   padding: 8px 12px;
   background-color: $white;
   border-radius: 30px;
   border: 3px solid $black;
-  width: 320px;
+  width: 350px;
   margin: 20px;
+}
+
+.search-bar label {
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .search-bar input {
@@ -124,6 +129,7 @@ body {
   outline: none;
   flex: 1;
   font-size: 14px;
+  padding: 4px 8px;
 }
 
 .search-bar button {
@@ -131,6 +137,14 @@ body {
   border: none;
   cursor: pointer;
   font-size: 16px;
+}
+
+// Hidding radius label on mobile
+@media (max-width: 600px) {
+  // adjust breakpoint as needed
+  .search-bar label[for="radiusInput"] {
+    display: none;
+  }
 }
 
 // ============ RESULTS CONTAINERS ============
@@ -237,6 +251,7 @@ body {
   // Showing radius after breakpoint
   #radiusInput {
     display: inline;
+    width: 100px;
   }
 
   .search-container {
@@ -278,6 +293,6 @@ body {
   }
 
   .locations-layout {
-    height: 700px;
+    height: 800px;
   }
 }

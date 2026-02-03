@@ -92,22 +92,29 @@ const fetchFacilityLocations = async (searchLocation, radius = 50) => {
 // Format Overpass API results
 function formatOverpassResults(overpassJson) {
   return (
-    overpassJson?.elements.map((element) => {
-      const tags = element.tags || {};
-      const street =
-        tags["addr:housenumber"] && tags["addr:street"]
-          ? `${tags["addr:housenumber"]} ${tags["addr:street"]}, ${tags["addr:city"] || ""} ${tags["addr:state"] || ""} ${tags["addr:postcode"] || ""}`.trim()
-          : null;
-      return {
-        name: tags.name || "No Name",
-        street, // null if not available
-        hours: tags.opening_hours || "Not available",
-        phone: tags.phone || tags["contact:phone"] || "Not available",
-        website: tags.website || tags["contact:website"] || "Not available",
-        lat: element.lat,
-        lng: element.lon,
-      };
-    }) || []
+    overpassJson?.elements
+      .map((element) => {
+        const tags = element.tags || {};
+
+        const street =
+          tags["addr:housenumber"] && tags["addr:street"]
+            ? `${tags["addr:housenumber"]} ${tags["addr:street"]}, ${tags["addr:city"] || ""} ${tags["addr:state"] || ""} ${tags["addr:postcode"] || ""}`.trim()
+            : null;
+
+        const hours = tags.opening_hours || null;
+
+        return {
+          name: tags.name || "No Name",
+          street,
+          hours,
+          phone: tags.phone || tags["contact:phone"] || null,
+          website: tags.website || tags["contact:website"] || null,
+          lat: element.lat,
+          lng: element.lon,
+        };
+      })
+      // Filter out any location missing street or hours
+      .filter((clinic) => clinic.street && clinic.hours) || []
   );
 }
 
