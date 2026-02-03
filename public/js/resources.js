@@ -167,8 +167,8 @@ async function loadAndDisplayFacilities(searchLocation, radius) {
 
 // Initial load for Charlotte
 window.addEventListener("DOMContentLoaded", async () => {
-  locationInput.value = defaultLocation.name;
-  radiusInput.value = defaultLocation.radius;
+  locationInput.value = ""; // completely empty
+  radiusInput.value = defaultLocation.radius; // keep default radius
   await loadAndDisplayFacilities(defaultLocation.name, defaultLocation.radius);
 });
 
