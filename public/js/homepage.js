@@ -129,3 +129,16 @@ async function saveMood(mood) {
     console.error('Mood save error:', error);
   }
 }
+
+const signoutBtn = document.querySelector(".signout-btn");
+signoutBtn.addEventListener("click", logout);
+
+async function logout(e) {
+  e.preventDefault();
+
+  await fetch("/auth/signout", {
+    method: "POST",
+    credentials: "include",
+  });
+  window.location.href = "/";
+}
