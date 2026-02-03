@@ -28,7 +28,7 @@ Mental health education is often overlooked, especially for young people navigat
 
 ## 🖼️ Logo
 
-![Logo](../Unfiltered/public/img/home-icon.png)
+![Logo](public/img/home-icon.png)
 
 ## ✨ Features
 
@@ -84,11 +84,11 @@ Unfiltered is built with a mobile-first approach and includes breakpoints for:
 
 ### Login View
 
-![Login Screen](../Unfiltered/public/img/ReadMe1.png)
+![Login Screen](public/img/ReadMe1.png)
 
 ### Signup View
 
-![Signup Screen](../Unfiltered/public/img/ReadMe2.png)
+![Signup Screen](public/img/ReadMe2.png)
 
 <p text-align = "center">
 </p>
@@ -129,11 +129,10 @@ http://localhost:8080
 
 ## 👥 Contributors
 
-[![Renee]()](https://github.com/reneemes)
-[![Cynthia](team-imgs/cynthia.png)](https://github.com/cynthiarincon)
-[![Elhadji](team-imgs/elhadji.png)](https://github.com/MassowNdiaye)
-[![Imani](team-imgs/imani.png)](https://github.com/ImaniMoore)
-
+[![Renee](public/img/renee.png)](https://github.com/reneemes)
+[![Cynthia](public/img/cynthia.png)](https://github.com/cynthiarincon)
+[![Elhadji](public/img/elhadji.png)](https://github.com/MassowNdiaye)
+[![Imani](public/img/imani.png)](https://github.com/ImaniMoore)
 
 ---
 
