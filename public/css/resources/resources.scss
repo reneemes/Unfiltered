@@ -69,35 +69,25 @@ body {
     box-shadow: 6px 6px 0px $black;
     position: relative;
     max-width: 600px;
-    height: 600px;
-    margin: 10vh auto;
+    // height: 600px;
+    margin: 30vh auto;
     padding: 1.5rem;
-    background: #ffdada;
+    background: white;
+
+    &--title {
+      font-size: 3rem;
+      color: red;
+    }
+
+    &--blurb {
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
 
     &--sub-title {
       padding: 0;
       font-size: 18px;
-    }
-
-    &--body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    img {
-      width: 50%;
-      height: auto;
-      border-radius: 15px;
-    }
-
-    .support-title {
-      margin-bottom: 0;
-      font-size: 1.6rem;
-    }
-
-    li {
-      font-size: 1.2rem;
     }
   }
 

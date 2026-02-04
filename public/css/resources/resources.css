@@ -53,31 +53,22 @@ body {
   box-shadow: 6px 6px 0px #000000;
   position: relative;
   max-width: 600px;
-  height: 600px;
-  margin: 10vh auto;
+  margin: 30vh auto;
   padding: 1.5rem;
-  background: #ffdada;
+  background: white;
+}
+.modal__content--title {
+  font-size: 3rem;
+  color: red;
+}
+.modal__content--blurb {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.2rem;
 }
 .modal__content--sub-title {
   padding: 0;
   font-size: 18px;
-}
-.modal__content--body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.modal__content img {
-  width: 50%;
-  height: auto;
-  border-radius: 15px;
-}
-.modal__content .support-title {
-  margin-bottom: 0;
-  font-size: 1.6rem;
-}
-.modal__content li {
-  font-size: 1.2rem;
 }
 .modal__close-btn {
   position: absolute;
