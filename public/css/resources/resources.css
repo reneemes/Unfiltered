@@ -68,6 +68,7 @@ body {
 .modal__content img {
   width: 80%;
   height: auto;
+  border-radius: 15px;
 }
 .modal__content .support-title {
   margin-bottom: 0;
