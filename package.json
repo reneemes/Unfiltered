@@ -16,7 +16,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon src/app.js -e js,hbs"
+    "dev": "nodemon src/app.js -e js,hbs",
+    "build": "node build.js"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
@@ -37,6 +38,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.23",
+    "handlebars": "^4.7.8",
     "nodemon": "^3.1.11",
     "postcss": "^8.5.6"
   }

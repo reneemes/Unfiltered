@@ -1,0 +1,89 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png">   
+    <link rel="stylesheet" href="/css/about/about.css">
+    <link rel="stylesheet" href="css/partials/nav.css">
+    <title>Unfiltered | About us</title>
+  </head>
+  <body>
+   <main class="about">
+    <div class="about__sec">
+      <span class="about__title--prefix">UN</span><span class="about__title--name">FILTERED</span>
+    </div>
+    
+    <section class="about-intro">
+      <h1 class="about-intro__title">MEET THE TEAM</h1>
+      <h2 class="about-intro__sub-title">Behind Unfiltered.</h2>
+      <p class="about-intro__body">
+         <strong>Unfiltered</strong> is a mental health platform designed to support teens through honest expression 
+         and emotional reflection. We believe that feelings should not be hidden or minimized, and that everyone 
+         deserves a safe space to be heard.
+      </p>
+      <p class="about-intro__body">
+        Our goal is to provide a secure environment where users can write freely, 
+        track emotional patterns over time, and build stronger self-awareness. 
+        We aim to empower young people to better understand their emotions and develop healthier coping strategies.
+      </p>
+      <p class="about-intro__body">
+        <strong>Unfiltered</strong> is committed to promoting mental wellness, reducing stigma, and encouraging open conversations about emotional health.
+      </p>
+    </section>
+
+    <section class="team">
+    </section>
+
+    <section class="contact">
+      <h2 class="contact__title">CONTACT US</h2>
+      <p class="contact__message">
+        Have a question or feedback? Send us a message and we will get back to you as soon as possible.
+      </p>
+
+      <form class="contact-form" id="contactForm" method="post" action="javascript:void(0)">
+        <p class="contact-form__feedback"></p>
+
+        <label for="name">NAME</label>
+        <input type="text" id="name" name="name" placeholder="Name" required>
+        
+        <label for="email">EMAIL</label>
+        <input type="email" id="email" name="email" placeholder="email@gmail.com" required>
+        
+        <label for="message">MESSAGE</label>
+        <textarea 
+          id="message" 
+          name="message" 
+          placeholder="Type message here..."
+          maxlength="500"
+          required></textarea>
+        <p id="character-output"></p>
+
+        <label for="reason">REASON</label>
+        <select id="reason" name="reason" required>
+          <option value="">Select</option>
+          <option value="general">General Inquiry</option>
+          <option value="support">Support</option>
+          <option value="feedback">Feedback</option>
+        </select>
+        
+        <button class="contact-form__btn" type="submit">SUBMIT</button>
+      </form>
+    </section>
+   </main>
+
+<!--- nav bar --->
+  <!-- Simple back button for non-logged-in users -->
+  <div class="back-to-home">
+    <a href="/" class="back-btn">← Return to Home</a>
+  </div>
+
+<!-- Copyright Footer-->
+  <footer class="footer">
+    <p>© 2026 Unfiltered. All Rights Reserved.</p>
+  </footer>
+
+    <script src="/js/about.js"></script>
+  </body>
+</html>

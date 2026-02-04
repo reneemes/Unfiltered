@@ -1,0 +1,190 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png">
+    <link rel="stylesheet" href="css/homepage/homepage.css" />
+    <link rel="stylesheet" href="css/partials/nav.css">
+    <title>Unfiltered | Homepage</title>
+  </head>
+
+  <body>
+    <main>
+      <!-- HEADER SECTION -->
+      <section class="header-section">
+
+          <!-- TITLE SECTION -->
+        <div class="title-section">
+          <h1>Hi, <span class="user-name"></span></h1>
+          <h1>How are you doing today?</h1>
+        </div>
+
+        <!-- PROFILE SECTION -->
+        <div class="profile-section">
+          <img src="" alt="Profile Picture" />
+          <span class="profile-text">Profile</span>
+        </div>    
+      </section>
+      
+      <!-- CONTENT SECTION -->
+      <section class="content-section">
+        <!-- WEEK DAYS -->
+        <section class="week-days">
+          <div class="days-container">
+            <!-- Sunday -->
+            <div class="day"><p>S</p><span class="day-number">10</span></div>
+            <!-- Monday -->
+            <div class="day"><p>M</p><span class="day-number">0</span></div>
+            <!-- Tuesday -->
+            <div class="day"><p>T</p><span class="day-number">0</span></div>
+            <!-- Wednesday -->
+            <div class="day"><p>W</p><span class="day-number">0</span></div>
+            <!-- Thursday -->
+            <div class="day"><p>T</p><span class="day-number">0</span></div>
+            <!-- Friday -->
+            <div class="day"><p>F</p><span class="day-number">0</span></div>
+            <!-- Saturday -->
+            <div class="day"><p>S</p><span class="day-number">0</span></div>
+          </div>
+        </section>
+
+        <!-- GRAPH SECTION -->
+        <div class="graph-section">
+          <div id="myChart" style="max-width:700px; height:400px"></div>
+          <div>
+            <button data-range="week">Week</button>
+            <button data-range="month">Month</button>
+            <button data-range="year">Year</button>
+          </div>
+        </div>
+
+        <!-- MOOD SECTION -->
+        <div class="mood-section">
+          <p class="mood-title">Daily mood</p>
+
+          <div class="mood-options">
+
+            <button data-mood="happy" class="mood-btn happy">
+              <span class="emoji">😊</span>
+              <p>Happy</p>
+            </button>
+
+            <button data-mood="sad" class="mood-btn sad">
+              <span class="emoji">😔</span>
+              <p>Sad</p>
+            </button>
+
+            <button data-mood="angry" class="mood-btn angry">
+              <span class="emoji">😠</span>
+              <p>Angry</p>
+            </button>
+
+            <button data-mood="anxious" class="mood-btn anxious">
+              <span class="emoji">😰</span>
+              <p>Anxious</p>
+            </button>
+
+            <button data-mood="excited" class="mood-btn excited">
+             <span class="emoji">🤩</span>
+              <p>Excited</p>
+            </button>
+
+            <button data-mood="tired" class="mood-btn tired">
+               <span class="emoji">😴</span>
+              <p>Tired</p>
+            </button>
+
+            <button data-mood="calm" class="mood-btn calm">
+              <span class="emoji">😌</span>
+              <p>Calm</p>
+            </button>
+
+            <button data-mood="stressed" class="mood-btn stressed">
+               <span class="emoji">😫</span>
+              <p>Stressed</p>
+            </button>
+          </div>
+        </div>
+
+        <!-- JOURNAL CONTENT -->
+        <div class="journal-section">
+          <form id="journalForm">
+            <label for="journalTitle">Title</label>
+            <input
+              type="text"
+              id="journalTitle"
+              placeholder="Write your title here..." required/>
+
+            <label for="journal">Your journal</label>
+            <textarea
+              id="journal"
+              placeholder="Write your daily thoughts here..." required></textarea>
+
+            <button id="saveJournalBtn">Save</button>
+          </form>
+      </div>
+
+        <!-- JOURNAL HISTORY SECTION -->
+        <div class="journal-history" id="journalHistory">
+          <label for="">Journal History</label>
+        </div>
+
+        <!-- JOURNAL MODAL SECTION -->
+        <div id="journalModal" class="modal hidden">
+          <div class="modal__backdrop"></div>
+
+          <div class="modal__content" role="dialog" aria-modal="true">
+            <button class="modal__close-btn" aria-label="Close">&times;</button>
+
+            <h2 id="modalTitle" class="modal__title">Journal Title</h2>
+            <p id="modalDate" class="modal__date"></p>
+            <div id="modalBody" class="modal__body"></div>
+          </div>
+        </div>
+
+      </section>
+      <div class="reserved-rights">
+        <p>© 2026 Unfiltered. All Rights Reserved.</p>
+      </div>
+    </main>
+     <!-- Navigation Bar Partial -->
+     <nav>
+       <div class="nav-icons">
+         <div>
+           <a href="/homepage">
+             <img src="img/home-icon.png" alt="Homepage" class="nav-icon" />
+           </a>
+         </div>
+         <div>
+           <a href="/resources">
+             <img
+               src="img/resources-icon.png"
+               alt="Resource Page"
+               class="nav-icon"
+             />
+           </a>
+         </div>
+         <div>
+           <a href="/about">
+             <img src="img/team-icon.png" alt="Team" class="nav-icon" />
+           </a>
+         </div>
+     
+         <div class="sign-out-icon">
+           <form action="/auth/signout" method="POST">
+             <button type="submit" class="signout-btn">
+               <img src="img/sign-out-icon.png" alt="Sign Out" class="nav-icon" />
+             </button>
+           </form>
+         </div>
+     
+       </div>
+     </nav>    <script src="https://www.gstatic.com/charts/loader.js"></script> <!-- Google Chart -->
+    <script src="js/homepage.js"></script>
+    <script src="js/journal.js"></script>
+  </body>
+</html>

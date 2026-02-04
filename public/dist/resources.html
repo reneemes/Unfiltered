@@ -1,0 +1,124 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/partials/nav.css">
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png">
+    <link rel="stylesheet" href="css/resources/resources.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> <!-- MAP RENDER-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Unfiltered | Resources Page</title>
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet/dist/leaflet.css"
+    />
+  </head>
+  <body>
+    <main>
+      <!-- HEADER SECTION -->
+      <section class="header-section">
+        <div class="title-section">
+          <h2><strong>Need support?</strong><br class="mobile-break"> Find someone to talk to.</h2>
+        </div>
+        <div class="profile-section">
+          <img src="" alt="Profile Picture" />
+          <span class="profile-text">Profile</span>
+        </div>    
+      </section>
+
+     <!-- SEARCH SECTION -->
+      <section class="search-container">
+        <div class="search-bar">
+          <label for="locationInput" >Location</label>
+          <input id="locationInput" type="text" placeholder="Add your location, address..." />
+
+          <label for="radiusInput" class="sr-only">Radius</label>
+          <input id="radiusInput" type="number" placeholder="Radius" min="1" />
+
+          <button id="searchButton" aria-label="Search">🔍</button>
+        </div>
+      </section>
+
+
+      <!-- LOCATIONS SECTION -->
+      <section class="locations-layout">
+        <!-- MAP -->
+        <div class="location-map" id="locationMap" style="height: 500px;"></div>
+
+        <!-- RESULTS LIST -->
+        <div class="location-results" id="locationResults">
+          <!-- Clinic items will be injected here dynamically -->
+        </div>
+      </section>
+
+      <!-- ALERT MODAL SECTION -->
+        <div id="infoModal" class="modal">
+          <div class="modal__backdrop"></div>
+
+          <div class="modal__content" role="dialog" aria-modal="true">
+            <button class="modal__close-btn" aria-label="Close">&times;</button>
+
+            <h1 class="modal__content--title">Get Help Now</h1>
+            <h2 class="modal__content--sub-title">
+              Contact a trusted adult or guardian if you are experiencing 
+              mental health-related distress or are worried about a loved 
+              one who may need crisis support.
+            </h2>
+            <img src="/img/988-support.png" alt="988 support hotline"/>
+            <h3 class="support-title">988 Lifeline: free and confidential support</h3>
+            <ul>
+              <li><strong>Call or text</strong> 988.</li>
+              <li><strong>Chat</strong> at <a href="988lifeline.org">988lifeline.org</a>.</li>
+              <li>Connect with a trained crisis counselor. 988 is confidential, free, and available 24/7/365.</li>
+            </ul>
+          </div>
+        </div>
+    </main>
+
+    <!-- Navigation Bar Partial -->
+    <nav>
+      <div class="nav-icons">
+        <div>
+          <a href="/homepage">
+            <img src="img/home-icon.png" alt="Homepage" class="nav-icon" />
+          </a>
+        </div>
+        <div>
+          <a href="/resources">
+            <img
+              src="img/resources-icon.png"
+              alt="Resource Page"
+              class="nav-icon"
+            />
+          </a>
+        </div>
+        <div>
+          <a href="/about">
+            <img src="img/team-icon.png" alt="Team" class="nav-icon" />
+          </a>
+        </div>
+    
+        <div class="sign-out-icon">
+          <form action="/auth/signout" method="POST">
+            <button type="submit" class="signout-btn">
+              <img src="img/sign-out-icon.png" alt="Sign Out" class="nav-icon" />
+            </button>
+          </form>
+        </div>
+    
+      </div>
+    </nav>
+<!-- Copyright Footer-->
+  <footer class="footer">
+    <p>© 2026 Unfiltered. All Rights Reserved.</p>
+  </footer>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> <!-- Allow to load leaflet JS to create maps-->
+    <script src="js/resources.js"></script>
+  </body>
+</html>
