@@ -176,3 +176,17 @@ window.addEventListener("DOMContentLoaded", async () => {
 searchButton.addEventListener("click", async () => {
   await loadAndDisplayFacilities(locationInput.value, radiusInput.value);
 });
+
+// Logout Button
+const signoutBtn = document.querySelector(".signout-btn");
+signoutBtn.addEventListener("click", logout);
+
+async function logout(e) {
+  e.preventDefault();
+
+  await fetch("/auth/signout", {
+    method: "POST",
+    credentials: "include",
+  });
+  window.location.href = "/";
+}

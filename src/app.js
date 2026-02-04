@@ -13,7 +13,7 @@ const geocodeRoutes = require("./routes/geolocation.js");
 
 const auth = require("./middleware/auth.js");
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 
 //Initializing App
 const app = express();
@@ -52,7 +52,7 @@ app.get("/homepage", auth, (req, res) => {
     user: {
       firstName: req.user.first_name,
       profileImg: req.user.profile_img,
-    }
+    },
   }); //res -> Render -> homepage (homepage.hbs)
 });
 
@@ -61,7 +61,7 @@ app.get("/resources", auth, (req, res) => {
   res.render("resources", {
     user: {
       profileImg: req.user.profile_img,
-    }
+    },
   }); //res -> Render -> resources Page (resources.hbs)
 });
 
