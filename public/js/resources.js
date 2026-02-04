@@ -7,7 +7,7 @@ const signoutBtn = document.querySelector(".signout-btn");
 signoutBtn.addEventListener("click", logout);
 // Modal
 const modal = document.getElementById("infoModal");
-// openModal();
+
 
 // Adding Default location
 const defaultLocation = {
@@ -185,10 +185,6 @@ searchButton.addEventListener("click", async () => {
 
 /* ==== SHOW MESSAGE MODAL ==== */
 function openModal() {
-  // modalTitle.textContent = journalData.title;
-  // modalDate.textContent = formatDate(journalData.created_at);
-  // modalBody.textContent = journalData.body;
-
   modal.classList.remove("hidden");
   document.body.style.overflow = "hidden";
 }
@@ -197,6 +193,23 @@ function closeModal() {
   modal.classList.add("hidden");
   document.body.style.overflow = "";
 }
+
+// close on backdrop or button
+modal.addEventListener("click", (e) => {
+  if (
+    e.target.classList.contains("modal__backdrop") ||
+    e.target.classList.contains("modal__close-btn")
+  ) {
+    closeModal();
+  }
+});
+
+// close on ESC
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    closeModal();
+  }
+});
 
 async function logout(e) {
   e.preventDefault();

@@ -69,7 +69,6 @@ body {
     box-shadow: 6px 6px 0px $black;
     position: relative;
     max-width: 600px;
-    // margin: 5vh auto;
     margin: 10vh auto;
     padding: 1.5rem;
     background: #FFDADA;
@@ -204,7 +203,7 @@ body {
   font-size: 16px;
 }
 
-// Hidding radius label on mobile
+// Hiding radius label on mobile
 @media (max-width: 600px) {
   // adjust breakpoint as needed
   .search-bar label[for="radiusInput"] {
